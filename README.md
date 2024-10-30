@@ -9,3 +9,14 @@ In This Repository:
 💪 All Levels, All Categories — Tackling everything from "Easy" to "Nightmare Fuel" (a.k.a. "Hard").
 🎯 Detailed Comments and Insights — Sharing not just solutions but thought processes and strategies for that extra edge.
 For the fellow coders: Grab your favorite energy drink and dive in. Let’s level up together and crush those tech interviews!
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Array
+|  |
+| ------- |
+| [0026-remove-duplicates-from-sorted-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0026-remove-duplicates-from-sorted-array) |
+## Two Pointers
+|  |
+| ------- |
+| [0026-remove-duplicates-from-sorted-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0026-remove-duplicates-from-sorted-array) |
+<!---LeetCode Topics End-->
