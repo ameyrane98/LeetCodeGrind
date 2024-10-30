@@ -9,27 +9,3 @@ In This Repository:
 💪 All Levels, All Categories — Tackling everything from "Easy" to "Nightmare Fuel" (a.k.a. "Hard").
 🎯 Detailed Comments and Insights — Sharing not just solutions but thought processes and strategies for that extra edge.
 For the fellow coders: Grab your favorite energy drink and dive in. Let’s level up together and crush those tech interviews!
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-|  |
-| ------- |
-| [0169-majority-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0169-majority-element) |
-## Hash Table
-|  |
-| ------- |
-| [0169-majority-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0169-majority-element) |
-## Divide and Conquer
-|  |
-| ------- |
-| [0169-majority-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0169-majority-element) |
-## Sorting
-|  |
-| ------- |
-| [0169-majority-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0169-majority-element) |
-## Counting
-|  |
-| ------- |
-| [0169-majority-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0169-majority-element) |
-<!---LeetCode Topics End-->
