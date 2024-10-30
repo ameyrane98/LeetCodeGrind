@@ -15,6 +15,7 @@ For the fellow coders: Grab your favorite energy drink and dive in. Let’s leve
 |  |
 | ------- |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0026-remove-duplicates-from-sorted-array) |
+| [0027-remove-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0027-remove-element) |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
 | [0169-majority-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0169-majority-element) |
 | [0189-rotate-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0189-rotate-array) |
@@ -22,6 +23,7 @@ For the fellow coders: Grab your favorite energy drink and dive in. Let’s leve
 |  |
 | ------- |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0026-remove-duplicates-from-sorted-array) |
+| [0027-remove-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0027-remove-element) |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
 | [0189-rotate-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0189-rotate-array) |
 ## Hash Table
