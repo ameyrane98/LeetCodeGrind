@@ -17,11 +17,13 @@ For the fellow coders: Grab your favorite energy drink and dive in. Let’s leve
 | [0026-remove-duplicates-from-sorted-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0026-remove-duplicates-from-sorted-array) |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
 | [0169-majority-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0169-majority-element) |
+| [0189-rotate-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0189-rotate-array) |
 ## Two Pointers
 |  |
 | ------- |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0026-remove-duplicates-from-sorted-array) |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
+| [0189-rotate-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0189-rotate-array) |
 ## Hash Table
 |  |
 | ------- |
@@ -38,4 +40,8 @@ For the fellow coders: Grab your favorite energy drink and dive in. Let’s leve
 |  |
 | ------- |
 | [0169-majority-element](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0169-majority-element) |
+## Math
+|  |
+| ------- |
+| [0189-rotate-array](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0189-rotate-array) |
 <!---LeetCode Topics End-->
