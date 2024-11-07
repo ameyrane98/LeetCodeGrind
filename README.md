@@ -1,4 +1,4 @@
-![LeetCode Logo](images/example.webp)
+![LeetCode Logo](images/leetcodeGrind.PNG)
 
 
 🧠 LeetCode Grind: The Grad Student Chronicles 📚💻
