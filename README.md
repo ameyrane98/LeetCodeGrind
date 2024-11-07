@@ -1,3 +1,6 @@
+![LeetCode Logo](images/example.png)
+
+
 🧠 LeetCode Grind: The Grad Student Chronicles 📚💻
 Repo Name: LeetCodeGrind
 
