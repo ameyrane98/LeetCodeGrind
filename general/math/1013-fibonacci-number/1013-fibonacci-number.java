@@ -1,13 +1,18 @@
 class Solution {
-    public int fib(int n) {
 
-        if(n==0){
-            return 0;
-        }else if(n==1){
-            return 1;
+    public int solve(int n,int[] store){
+        if(n<=1){
+            return n;
+        }else if(store[n]!=-1){
+            return store[n];
         }
-        
-        return fib(n-1) + fib(n-2);
-         
+
+        return store[n]=solve(n-1,store)+solve(n-2,store);
+    }
+    
+    public int fib(int n) {
+        int[] store = new int[n+1];
+        Arrays.fill(store, -1);
+        return solve(n,store);
     }
 }
