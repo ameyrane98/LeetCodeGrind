@@ -1,21 +1,40 @@
 class Solution {
-/** Approch using Dp Bottom-up Approach Time O(n)*/
-    public int fib(int n) {
-        int[] store = new int[n+1];
-        Arrays.fill(store,-1);
+/** Approch using constant time complexity, by just storing two variables which store past values*/
+public int fib(int n) {
+        
         if(n<=1){
             return n;
         }
-
-        store[0]=0;
-        store[1]=1;
-
-        for(int i=2; i<=n;i++){
-            store[i]=store[i-1]+store[i-2];
+        int a = 0;
+        int b = 1;
+        int c = a+b;
+        for(int i=2; i<n;i++){
+            a = b;
+            b = c;
+            c = a+b;
         }
 
-        return store[n];
+        return c;
     }
+
+
+/** Approch using Dp Bottom-up Approach Time O(n)*/
+    // public int fib(int n) {
+    //     int[] store = new int[n+1];
+    //     Arrays.fill(store,-1);
+    //     if(n<=1){
+    //         return n;
+    //     }
+
+    //     store[0]=0;
+    //     store[1]=1;
+
+    //     for(int i=2; i<=n;i++){
+    //         store[i]=store[i-1]+store[i-2];
+    //     }
+
+    //     return store[n];
+    // }
 
 /** Approch using Dp (Memoization) Top Down Approach */
     // public int solve(int n,int[] store){
