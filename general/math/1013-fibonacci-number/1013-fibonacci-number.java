@@ -16,7 +16,8 @@ class Solution {
         return solve(n,store);
     }
 
-/** normal approach */
+/** normal approach tIME COMPLEXITY O(2^N)*/
+    
     // public int fib(int n) {
         
     //     if(n<=1){
