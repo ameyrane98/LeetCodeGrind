@@ -1,30 +1,58 @@
 class Solution {
-    /**Bottom up Appraoch */
-    int[] numArr;// numebr of ways to clim ith stairs, i.e 2 stair chadne ke kitne ways hai
-
+  /**Another way */
     public int climbStairs(int n) {
-        numArr= new int[n+1];
-        Arrays.fill(numArr,-1);
-        return solve(n,numArr);
+        return solve(n);
     }
 
-    public int solve(int n,int[] numArr){
+    public int solve(int n){
 
         if(n<=2){
             return n;
         }
 
-        numArr[0]=0;// Number of ways to climb ith stairs
-        numArr[1]=1;// Number of ways to climb ith stairs
-        numArr[2]=2;// Number of ways to climb ith stairs
-
+        int a=1;
+        int b=2;
+        int c=3;
         for(int i=3;i<=n;i++)
         {
-            numArr[i]= numArr[i-2]+numArr[i-1];
+            c=b+a;
+
+            int temp_b=b;
+            b=c;
+            a=temp_b;
+
         }
 
-        return numArr[n];
+        return c;
     }
+
+
+    /**Bottom up Appraoch */
+    //int[] numArr;// numebr of ways to clim ith stairs, i.e 2 stair chadne ke kitne ways hai
+
+    // public int climbStairs(int n) {
+    //     numArr= new int[n+1];
+    //     Arrays.fill(numArr,-1);
+    //     return solve(n,numArr);
+    // }
+
+    // public int solve(int n,int[] numArr){
+
+    //     if(n<=2){
+    //         return n;
+    //     }
+
+    //     numArr[0]=0;// Number of ways to climb ith stairs
+    //     numArr[1]=1;// Number of ways to climb ith stairs
+    //     numArr[2]=2;// Number of ways to climb ith stairs
+
+    //     for(int i=3;i<=n;i++)
+    //     {
+    //         numArr[i]= numArr[i-2]+numArr[i-1];
+    //     }
+
+    //     return numArr[n];
+    // }
 
     /**Top Down Approach */
     // int[] dp;
