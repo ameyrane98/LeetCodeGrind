@@ -1,4 +1,48 @@
 class Solution {
+
+    /**quick sort, Altough it fails because worst case is O(n^2), best case is when array is partitioned correctly in half then O(nlogn) */
+    // public int[] sortArray(int[] nums) {
+    //     quickSort(nums,0,nums.length-1);   
+    //     return  nums;
+    // }
+
+    // void quickSort(int[] nums, int low, int high){
+    //     if(low>=high){
+    //         return;
+    //     }
+
+  
+    //     int ParI= partition(nums,low,high);
+
+    //     quickSort(nums,low,ParI-1);
+    //     quickSort(nums,ParI+1,high);
+        
+    // }
+
+    // int partition(int[] nums, int low, int high){
+    //     int pivotIndex=low;
+    //     int pivot=nums[high];
+
+    //     for(int i=low;i<high;i++){
+    //         if(nums[i]<=pivot){
+    //             swap(nums,i,pivotIndex);
+    //             pivotIndex++;
+    //         }
+    //     }
+
+    //     swap(nums,pivotIndex,high);
+
+    //     return pivotIndex;
+    // }
+
+    // void swap(int[] nums, int a, int b){
+    //     int temp=nums[a];
+    //     nums[a]=nums[b];
+    //     nums[b]=temp;
+    // }
+
+
+    /**Merge Sort */
     public int[] sortArray(int[] nums) {
         mergeSort(nums,0,nums.length-1);   
         return  nums;
