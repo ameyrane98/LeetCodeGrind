@@ -20,17 +20,17 @@ class Solution {
         }
 
         if(root.left!=null || root.right !=null){
-            TreeNode temp =root.right;
-            root.right=root.left;
+            TreeNode temp =root.right;// store the original right subtreee
+            root.right=root.left;// do the switch 
             root.left=null;
 
 
-            TreeNode curr= root;
+            TreeNode curr= root; // transvere to rightest subtree 
 
             while(curr.right!=null){
                 curr=curr.right;
             }
-            curr.right=temp;
+            curr.right=temp;// attace the orginal subtree
         }
 
 
