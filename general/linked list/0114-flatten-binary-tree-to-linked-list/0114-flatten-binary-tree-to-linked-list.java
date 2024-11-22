@@ -30,7 +30,7 @@ class Solution {
             while(curr.right!=null){
                 curr=curr.right;
             }
-            curr.right=temp;// attace the orginal subtree
+            curr.right=temp;// attace the orginal right subtree
         }
 
 
