@@ -1,5 +1,5 @@
 class Solution {
-    /**without using a visited array */
+    /**without using a visited array, this one is slower but opitmizes on space*/
     // int[][] directions= new int[][]{{1,0},{-1,0},{0,-1},{0,1}};
     // public boolean exist(char[][] board, String word) {
     //     int m= board.length;
@@ -45,7 +45,7 @@ class Solution {
     // }
 
 
-    /**Code using a visited array */
+    /**Code using a visited array this provides faster calculation but uses space */
 
     public boolean exist(char[][] board, String word) {
         int m=board.length;
