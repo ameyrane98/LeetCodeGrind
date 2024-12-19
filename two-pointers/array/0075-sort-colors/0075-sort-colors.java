@@ -1,6 +1,6 @@
 class Solution {
     public void sortColors(int[] nums) {
-        /**with extra space is counting sort */ 
+        /**counting sort */ 
 
         int[] extra= new int[3];
         
