@@ -1,6 +1,9 @@
 import java.util.*;
 class Solution {
     public String minWindow(String s, String t) {
+         if (s.length() < t.length()) {
+            return "";
+        }
         HashMap<Character,Integer> hMap= new HashMap();
          HashMap<Character,Integer> currWindow= new HashMap();
         for(char c: t.toCharArray()){
