@@ -8,16 +8,17 @@ class Solution {
         int[] res = new int[nums.length-k+1];
         Deque<Integer> dq = new LinkedList();
         for(int right=0; right<nums.length; right++){
-
+            // Remove elements not in the window
             if (!dq.isEmpty() && dq.peekFirst() < right - k + 1) {
                 dq.pollFirst();
             }
-            
+                 // Remove smaller elements from the deque
             while(!dq.isEmpty() && nums[dq.peekLast()] < nums[right]){
                 dq.pollLast();
             }
-
+   // Add the current element's index to the deque
             dq.offerLast(right);
+             // The first element of the deque is the largest element in the window
             if(right>=k-1){
                 res[right - k + 1] = nums[dq.peekFirst()];
             }
