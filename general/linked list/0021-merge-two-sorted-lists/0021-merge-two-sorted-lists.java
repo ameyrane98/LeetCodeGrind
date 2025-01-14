@@ -25,6 +25,32 @@ class Solution {
             return list2;
         }
           
+
+        /***Iterative Approach */
+        //    ListNode dummy = new ListNode(-1);
+        // ListNode current = dummy;
+
+        // // Traverse both lists and add the smaller value to the merged list
+        // while (list1 != null && list2 != null) {
+        //     if (list1.val < list2.val) {
+        //         current.next = list1;
+        //         list1 = list1.next;
+        //     } else {
+        //         current.next = list2;
+        //         list2 = list2.next;
+        //     }
+        //     current = current.next;
+        // }
+
+        // // If one of the lists is not empty, append the rest of the nodes
+        // if (list1 != null) {
+        //     current.next = list1;
+        // } else {
+        //     current.next = list2;
+        // }
+
+        // // Return the merged list, which starts from dummy.next
+        // return dummy.next;
      
     }
 }
