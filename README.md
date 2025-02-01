@@ -12,3 +12,23 @@ In This Repository:
 💪 All Levels, All Categories — Tackling everything from "Easy" to "Nightmare Fuel" (a.k.a. "Hard").
 🎯 Detailed Comments and Insights — Sharing not just solutions but thought processes and strategies for that extra edge.
 For the fellow coders: Grab your favorite energy drink and dive in. Let’s level up together and crush those tech interviews!
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Tree
+|  |
+| ------- |
+| [0199-binary-tree-right-side-view](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0199-binary-tree-right-side-view) |
+## Depth-First Search
+|  |
+| ------- |
+| [0199-binary-tree-right-side-view](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0199-binary-tree-right-side-view) |
+## Breadth-First Search
+|  |
+| ------- |
+| [0199-binary-tree-right-side-view](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0199-binary-tree-right-side-view) |
+## Binary Tree
+|  |
+| ------- |
+| [0199-binary-tree-right-side-view](https://github.com/ameyrane98/LeetCodeGrind/tree/master/0199-binary-tree-right-side-view) |
+<!---LeetCode Topics End-->
