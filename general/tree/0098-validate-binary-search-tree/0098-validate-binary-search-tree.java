@@ -14,6 +14,10 @@
  * }
  */
 class Solution {
+    /**using long instead of int to make sure we handle
+        edge case where root.val> 2,147,483,647 
+        
+         */
     public boolean isValidBST(TreeNode root) {
         return validate(root,Long.MIN_VALUE, Long.MAX_VALUE);
     }
