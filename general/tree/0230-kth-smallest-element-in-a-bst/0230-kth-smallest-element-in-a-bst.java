@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    
+    /** my solution using the effect on inorder traversal on bst */
     public int kthSmallest(TreeNode root, int k) {
         ArrayList<Integer> arr = new ArrayList();
         solve(root,arr);
@@ -31,5 +31,35 @@ class Solution {
       solve(root.right,arr);
     }
 
+    /**OPTIMIZED WITH SPACE OF O(1) */
+    // class Solution {
+    // private int count = 0;
+    // private int result = -1;
 
+    // public int kthSmallest(TreeNode root, int k) {
+    //     inorderTraversal(root, k);
+    //     return result;
+    // }
+
+    // private void inorderTraversal(TreeNode root, int k) {
+    //     if (root == null) {
+    //         return;
+    //     }
+
+    //     // Traverse the left subtree
+    //     inorderTraversal(root.left, k);
+
+    //     // Increment the count of visited nodes
+    //     count++;
+
+    //     // If we've reached the kth node, store the result
+    //     if (count == k) {
+    //         result = root.val;
+    //         return;
+    //     }
+
+    //     // Traverse the right subtree
+    //     inorderTraversal(root.right, k);
+    // }
 }
+
