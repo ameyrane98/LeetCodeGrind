@@ -30,7 +30,7 @@ class Solution {
         }
 
         if(root.val>=maxSoFar){
-            System.out.println(root.val);
+        
             count++;
             maxSoFar=root.val;
         }
