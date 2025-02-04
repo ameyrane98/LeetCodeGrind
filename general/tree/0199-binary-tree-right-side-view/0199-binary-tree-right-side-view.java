@@ -48,4 +48,20 @@ class Solution {
             res.add(data.get(data.size()-1));
         }
     }
+
+
+
+    /**DFS Soolution */
+    // public List<Integer> rightSideView(TreeNode root) {
+    //     List<Integer> list=new ArrayList<>();
+    //     right(root,0,list);
+    //     return list;
+    // }
+    // public void right(TreeNode root,int lvl,List<Integer> list){
+    //     if(root==null) return;
+    //     if(lvl==list.size()) list.add(root.val);
+    //     right(root.right,lvl+1,list);
+    //     right(root.left,lvl+1,list);
+    //     return;
+    // }
 }
