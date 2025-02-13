@@ -1,50 +1,25 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        // Convert the string to lowercase
-        s = s.toLowerCase();
-        
-        int start = 0;
-        int end = s.length() - 1;
 
-        while (start < end) {
-           // Skip non-alphanumeric characters from the start
-            if (!Character.isLetterOrDigit(s.charAt(start))) {
-                start++;
-                continue;
-            }
-            
-            // Skip non-alphanumeric characters from the end
-            if (!Character.isLetterOrDigit(s.charAt(end))) {
-                end--;
-                continue;
-            }
-            
-            // Check if the characters at start and end are the same
-            if (s.charAt(start) == s.charAt(end)) {
-                start++;
-                end--;
-            } else {
-                return false;
+        StringBuilder str= new StringBuilder();
+        for(int i=0; i<s.length(); i++){
+            if(Character.isLetter(s.charAt(i))||Character.isDigit(s.charAt(i))){
+                str.append(Character.toLowerCase(s.charAt(i)));
             }
         }
-
-        return true;
+        System.out.println(str);
+        return checkPalindrome(str.toString(), 0, str.length()-1);
     }
-    /**Approach 1 */
-    // s=s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-    //     System.out.println(s);
-    //     int start=0;
-    //     int end=s.length()-1;
-      
 
-    //     while(start<end){
-    //         if(s.charAt(start) == s.charAt(end) ){
-    //             start+=1;
-    //             end-=1;
-    //         }else{
-    //             return false;
-    //         }
-    //     }
+    public boolean checkPalindrome(String st,int start, int end){
+        if(start>end){
+            return true;
+        }
 
-    //     return true;
+        if(st.charAt(start)!=st.charAt(end)){
+            return false;
+        }
+       
+        return checkPalindrome(st,start+1,end-1);
+    }
 }
