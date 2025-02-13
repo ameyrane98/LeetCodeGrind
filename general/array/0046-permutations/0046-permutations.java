@@ -1,5 +1,5 @@
 class Solution {
-    List<List<Integer>> result = new ArrayList();
+     List<List<Integer>> result = new ArrayList();
     public List<List<Integer>> permute(int[] nums) {
         List<Integer> arr= new ArrayList();
         
@@ -25,5 +25,4 @@ class Solution {
 
     
     }
-
 }
