@@ -19,8 +19,8 @@ class Solution {
         while(!pq.isEmpty()){
 
             ArrayList<Integer> temp= new ArrayList();
-
-            for(int i=0; i<n+1; i++){
+            int cycle = Math.min(n + 1, pq.size());
+            for(int i=0; i<cycle; i++){
                 if(!pq.isEmpty()){
                     int freq= pq.peek();
                     pq.poll();
