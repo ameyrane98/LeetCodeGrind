@@ -26,18 +26,31 @@ class Solution {
 //     }
 
 /** Solution 2: Top Down apporach */
-    int[] memo = new int[46];
+    // int[] memo = new int[46];
+    // public int climbStairs(int n) {
+    //     if(n<=2){
+    //         return n;
+    //     }
+
+    //     if(memo[n]!=0){
+    //         return memo[n];
+    //     }
+
+    //     memo[n] = climbStairs(n-1)+climbStairs(n-2);
+    //     return memo[n];
+    // }
+/** Solution 3: Space optimized*/
     public int climbStairs(int n) {
-        if(n<=2){
-            return n;
+        if (n <= 2) return n;
+
+        int prev1 = 2, prev2 = 1, curr = 0;
+        for (int i = 3; i <= n; i++) {
+            curr = prev1 + prev2;
+            prev2 = prev1;
+            prev1 = curr;
         }
 
-        if(memo[n]!=0){
-            return memo[n];
-        }
-
-        memo[n] = climbStairs(n-1)+climbStairs(n-2);
-        return memo[n];
+        return prev1;
     }
 
 }
