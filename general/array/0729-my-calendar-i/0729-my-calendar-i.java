@@ -22,22 +22,23 @@ class MyCalendar {
 
 /**
 O(log n)
-class MyCalendar {
-    TreeMap<Integer, Integer> calcy;
-    public MyCalendar() {
-    calcy = new TreeMap();
+Approach:
 
+TreeMap is used because it sorts its keys in natural order (in Integer that order would be ascending)
+TreeMap is also used because of the higherEntry method. HigherEntry returns the next bigger key (compared to the value given, in this case, "start") from the map.
+HigherEntry() example: TreeMap: {1=One, 2=Two, 3=Three, 4=Four, 5=Five} --> The higherEntry value for 3 is 4=Four
+Important note, the map key is the end time and the value is the start time.
+
+class MyCalendar {
+    TreeMap<Integer,Integer> calendar = new TreeMap<>();
+    public MyCalendar() {
+        calendar.put(Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
-    
     public boolean book(int start, int end) {
-    Integer prevBook = calcy.floorKey(start);
-    Integer nextBook = calcy.ceilingKey(start);
-    if((prevBook==null || calcy.get(prevBook)<=start) && (nextBook==null || end<=nextBook)) 
-    { 
-    calcy.put(start, end);
-    return true;
-    }
-    return false;
+        Map.Entry<Integer,Integer> pair = calendar.higherEntry(start);
+        boolean res = end <= pair.getValue();
+        if (res) calendar.put(end, start);
+        return res;
     }
 }
  */
