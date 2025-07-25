@@ -23,15 +23,21 @@ class MyCalendar {
 /**
 O(log n)
 class MyCalendar {
-    TreeMap<Integer,Integer> calendar = new TreeMap<>();
+    TreeMap<Integer, Integer> calcy;
     public MyCalendar() {
-        calendar.put(Integer.MAX_VALUE, Integer.MAX_VALUE);
+    calcy = new TreeMap();
+
     }
+    
     public boolean book(int start, int end) {
-        Map.Entry<Integer,Integer> pair = calendar.higherEntry(start);
-        boolean res = end <= pair.getValue();
-        if (res) calendar.put(end, start);
-        return res;
+    Integer prevBook = calcy.floorKey(start);
+    Integer nextBook = calcy.ceilingKey(start);
+    if((prevBook==null || calcy.get(prevBook)<=start) && (nextBook==null || end<=nextBook)) 
+    { 
+    calcy.put(start, end);
+    return true;
+    }
+    return false;
     }
 }
  */
