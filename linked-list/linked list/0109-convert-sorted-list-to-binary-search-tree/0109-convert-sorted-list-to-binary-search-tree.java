@@ -48,7 +48,7 @@ class Solution {
         // cut the left tree
         if (prev != null) prev.next = null;
 
-        root.left = sortedListToBST(head) ;
+        root.left = sortedListToBST(head);
 
         // root.left=sortedListToBST(head);
         root.right=sortedListToBST(slow.next);
