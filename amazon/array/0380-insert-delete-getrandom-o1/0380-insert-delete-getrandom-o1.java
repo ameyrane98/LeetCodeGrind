@@ -36,7 +36,7 @@ class RandomizedSet {
     }
     
     public int getRandom() {
-        int r = rand.nextInt(nums.size()); // uniform in [0, size)
+        int r = (int) (Math.random() * nums.size()); // uniform in [0, size)
         return nums.get(r);
     }
 }
