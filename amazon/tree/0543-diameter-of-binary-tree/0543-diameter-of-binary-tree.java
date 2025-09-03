@@ -47,8 +47,8 @@ class Solution {
         TreeInfo right= calculateHeight(root.right);
         int  myheight= Math.max(left.ht,right.ht) + 1;
 
-        int dim1= left.ht;
-        int dim2= right.ht;
+        int dim1= left.dia;
+        int dim2= right.dia;
         int dim3= left.ht+right.ht;
 
         int dia= Math.max(Math.max(dim1,dim2),dim3);
