@@ -20,16 +20,13 @@ class RandomizedSet {
     
     public boolean remove(int val) {
         Integer i = idx.get(val);
-        if (i == null) return false;
+        if(i==null) return false; // number not present
+        int lastIdx= nums.size()-1;
+        int lastVal= nums.get(lastIdx);
 
-        int lastIdx = nums.size() - 1;
-        int lastVal = nums.get(lastIdx);
+        nums.set(i,lastVal);
+        idx.put(lastVal,i);
 
-        // move lastVal into position i
-        nums.set(i, lastVal);
-        idx.put(lastVal, i);
-
-        // remove last
         nums.remove(lastIdx);
         idx.remove(val);
         return true;
