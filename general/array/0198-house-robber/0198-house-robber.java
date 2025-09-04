@@ -1,28 +1,24 @@
 class Solution {
-    int[] memo;
     public int rob(int[] nums) {
-        /** think about robbing the housr or skipping it */
-        int n = nums.length;
-        memo= new int[n];
+        /**
+            for every idx either we take the value, or we dont;
+            only ehcek id that wer should not take adjacnet vvalue
 
-        Arrays.fill(memo,-1);
-
-        return solve(nums,0);
+         */
+         Integer[] memo = new Integer[nums.length];
+         return solve(nums,nums.length,0, memo);
     }
 
-    public int solve(int[] nums,int i){
-        if(i>=nums.length){
+    public int solve(int[] nums, int n, int idx, Integer[] memo){
+        if(idx>=n){
             return 0;
         }
+        if (memo[idx] != null) return memo[idx]; 
 
-        if(memo[i]!=-1){
-            return memo[i];
-        }
+        int take=nums[idx]+solve(nums,n, idx+2, memo);
 
-        int rob= nums[i]+ solve(nums,i+2);
-        int skip= solve(nums,i+1);
-        memo[i]=Math.max(skip,rob);
+        int skip= solve(nums,n, idx+1,memo);
 
-        return memo[i];
+        return memo[idx]=Math.max(take,skip);
     }
 }
