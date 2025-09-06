@@ -3,6 +3,11 @@ class Solution {
         int m= matrix.length;
         int n= matrix[0].length;
         for(int i=0; i<m ;i++){
+
+            if(target<matrix[i][0] || target> matrix[i][n-1]){
+                continue;
+            }
+
             if(bs(matrix[i],0,matrix[i].length,target)){
                     return true;
             }
