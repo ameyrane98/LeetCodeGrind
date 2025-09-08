@@ -14,41 +14,38 @@
  * }
  */
 class Solution {
-    List<List<Integer>> res = new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
     public List<List<Integer>> levelOrder(TreeNode root) {
         if(root==null){
-           return res;
+            return new ArrayList<>();
         }
-
-        bfs(root);
-
-        return res;
+        solve(root,result);
+        return result;
     }
 
-    public void bfs(TreeNode root){
-        Queue<TreeNode> que= new LinkedList<>();
+    public void solve(TreeNode root,List<List<Integer>>  res){
+        if(root==null){
+            return;
+        }
+
+        Queue<TreeNode> que = new LinkedList<>();
         que.offer(root);
 
         while(!que.isEmpty()){
-            int levelSize= que.size();
-            List<Integer> levelNodes= new ArrayList<>();
-
-
-            for(int i=0; i<levelSize; i++){
-                TreeNode node = que.remove();
-
-                levelNodes.add(node.val);
-
+            int level= que.size();
+            List<Integer> arr= new ArrayList<>();
+            for(int i=0; i<level; i++){
+                TreeNode node = que.poll();
+                arr.add(node.val);
                 if(node.left!=null){
-                    que.add(node.left);
+                    que.offer(node.left);
                 }
-
                 if(node.right!=null){
-                    que.add(node.right);
+                    que.offer(node.right);
                 }
             }
-
-            res.add(levelNodes);
+            res.add(arr);
         }
+
     }
 }
