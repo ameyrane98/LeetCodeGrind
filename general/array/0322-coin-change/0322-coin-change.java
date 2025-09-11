@@ -1,67 +1,31 @@
 class Solution {
-        int[] dp;
+    private static final int INF = 1000000000;
     public int coinChange(int[] coins, int amount) {
-        dp= new int[amount+1];
-        Arrays.fill(dp,-1);
-        int result= dfs(coins,amount);
-     
-        return result==Integer.MAX_VALUE ? -1: result; 
-    
+        if(amount==0){
+            return 0;
+        }
+        int n =coins.length;
+        int[][] memo= new int[n][amount+1];
+        for(int[] mem : memo){ Arrays.fill(mem,-1);};
+        int res= solve(coins,amount,0,n,memo);
+        return (res >= INF) ? -1 : res;
     }
 
-    public int dfs(int[] coins,int rem){
-        if(rem==0){
+    public int solve(int[] coins,int amount,int idx, int n,int[][] memo){
+        if(amount==0){
             return 0;
         }
 
-        if(rem<0){
-            return Integer.MAX_VALUE;
-        }
-        if(dp[rem]!=-1){
-            return dp[rem];
-        }
-        int minCoins=Integer.MAX_VALUE;
+        if (amount < 0) return INF; // infinity
+        if (idx == n) return INF;// infinity
+        
+        if (memo[idx][amount] != -1) return memo[idx][amount];
 
-        for(int coin: coins){
-            int result=dfs(coins,rem-coin);
-            if(result!=Integer.MAX_VALUE){
-                minCoins= Math.min(minCoins,1+result);
-            }
-        }
+        int take = 1 + solve(coins,amount-coins[idx],idx,n,memo);
 
-        dp[rem] = minCoins; // Store computed result
-        return dp[rem];
+        int skip = solve(coins,amount,idx+1,n,memo);
+
+
+       return memo[idx][amount] = Math.min(take,skip);
     }
-
-
-    /**Bottom up approach */
-
-  
-
-// class Solution {
-//     public int coinChange(int[] coins, int amount) {
-//         int[] dp = new int[amount + 1];
-//         Arrays.fill(dp, amount + 1); // Fill with a large value
-//         dp[0] = 0; // Base case: 0 coins needed to make amount 0
-
-//         // Iterate through each amount
-//         for (int i = 1; i <= amount; i++) {
-//             for (int coin : coins) {
-//                 if (i >= coin) {
-//                     dp[i] = Math.min(dp[i], dp[i - coin] + 1);
-//                 }
-//             }
-//         }
-
-//         return dp[amount] > amount ? -1 : dp[amount];
-//     }
-
-//     public static void main(String[] args) {
-//         Solution solution = new Solution();
-//         int[] coins = {1, 2, 5};
-//         int amount = 11;
-//         System.out.println(solution.coinChange(coins, amount)); // Output: 3
-//     }
-// }
-
 }
