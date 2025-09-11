@@ -17,7 +17,7 @@ class Solution {
 
         for(int i=0; i<n ;i++){
             if(color[i]==-1){
-                if(dfs(adj,i,color,1)){
+                if(!dfs(adj,i,color,1)){
                     return false;
                 };
             }
@@ -32,15 +32,15 @@ class Solution {
 
         for(int v : adj.get(u)){
             if(color[v]==currColor){
-                return true;
+                return false;
             }
             if(color[v]==-1){
-                if(dfs(adj,v,color,1-currColor)){
-                    return true;
+                if(!dfs(adj,v,color,1-currColor)){
+                    return false;
                 }
             }
         }
 
-        return false;
+        return true;
     }
 }
