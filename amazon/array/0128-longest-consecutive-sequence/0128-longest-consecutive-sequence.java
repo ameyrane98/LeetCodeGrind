@@ -55,16 +55,15 @@ class Solution {
             int rootA = find(a, parent);
             int rootB = find(b, parent);
 
-            if (rootA != rootB) {
-                // Union by rank
-                if (rank[rootA] > rank[rootB]) {
-                    parent[rootB] = rootA;
-                } else if (rank[rootA] < rank[rootB]) {
-                    parent[rootA] = rootB;
-                } else {
-                    parent[rootA] = rootB;
+           if(rootA!=rootB){
+                if(rank[rootA]>rank[rootB]){
+                    parent[rootB]=rootA;
+                }else if(rank[rootA]<rank[rootB]){
+                    parent[rootA]=rootB;
+                }else{
+                    parent[rootA]=rootB;
                     rank[rootB]++;
                 }
-            }
+           }
     }
 }
