@@ -10,29 +10,47 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<Integer> p = new PriorityQueue<>();
+       int k =lists.length;
+        if(k==0){
+            return null;
+       }
 
-        for(int i = 0 ; i <lists.length ; i++){
-            ListNode curr=lists[i];
-            while(curr!=null){
-                p.add(curr.val);
-                curr=curr.next;
+        return divide(lists,0,k-1);
+    }
+
+    public ListNode divide(ListNode[] lists, int l, int r){
+        if(l>r){
+            return null;
+        }
+        if(l==r){
+            return lists[l];
+        }
+
+        int mid= l+(r-l)/2;
+
+        ListNode L1= divide(lists, l, mid);
+        ListNode L2= divide(lists, mid+1, r);
+
+        return mergeList(L1,L2);
+    }
+
+    public ListNode mergeList(ListNode l1, ListNode l2){
+        if(l1==null){
+            return l2;
+        }
+
+        if(l2==null){
+            return l1;
+        }
+
+       
+        if(l1.val<l2.val){
+                l1.next=mergeList(l1.next,l2);
+                return l1;
+            }else{
+                l2.next=mergeList(l1,l2.next);
+                return l2;
             }
-        }
-    
-
-          // Create a dummy node to start building the result list
-        ListNode dummy = new ListNode(0);
-        ListNode tail = dummy;
-
-        // Extract elements from the PriorityQueue and build the merged list
-        while (!p.isEmpty()) {
-            tail.next = new ListNode(p.poll());
-            tail = tail.next;
-        }
-
-        // Return the merged list
-        return dummy.next;
 
     }
 }
