@@ -19,7 +19,6 @@ class Solution {
 
         while(fast!=null && fast.next!=null){
             slow = slow.next;
-            System.out.println(fast.val);
             fast= fast.next.next;
         }
         
