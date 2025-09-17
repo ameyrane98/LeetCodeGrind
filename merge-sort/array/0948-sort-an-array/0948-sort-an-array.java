@@ -1,101 +1,63 @@
 class Solution {
-
-    /**quick sort, Altough it fails because worst case is O(n^2), best case is when array is partitioned correctly in half then O(nlogn) */
-    // public int[] sortArray(int[] nums) {
-    //     quickSort(nums,0,nums.length-1);   
-    //     return  nums;
-    // }
-
-    // void quickSort(int[] nums, int low, int high){
-    //     if(low>=high){
-    //         return;
-    //     }
-
-  
-    //     int ParI= partition(nums,low,high);
-
-    //     quickSort(nums,low,ParI-1);
-    //     quickSort(nums,ParI+1,high);
-        
-    // }
-
-    // int partition(int[] nums, int low, int high){
-    //     int pivotIndex=low;
-    //     int pivot=nums[high];
-
-    //     for(int i=low;i<high;i++){
-    //         if(nums[i]<=pivot){
-    //             swap(nums,i,pivotIndex);
-    //             pivotIndex++;
-    //         }
-    //     }
-
-    //     swap(nums,pivotIndex,high);
-
-    //     return pivotIndex;
-    // }
-
-    // void swap(int[] nums, int a, int b){
-    //     int temp=nums[a];
-    //     nums[a]=nums[b];
-    //     nums[b]=temp;
-    // }
-
-
-    /**Merge Sort */
     public int[] sortArray(int[] nums) {
-        mergeSort(nums,0,nums.length-1);   
-        return  nums;
+        if (nums == null || nums.length <= 1) return nums;
+        divide(nums,0,nums.length-1);
+        return nums;
     }
-
-    void mergeSort(int[] nums, int l, int r){
+    public void divide(int[] nums,int l, int r){
         if(l>=r){
             return;
         }
+        int mid = l +(r-l)/2;
+        divide(nums, l,mid);
+        divide(nums, mid+1,r);
 
-        int m = l + (r-l) /2;
-        mergeSort(nums,l,m);
-        mergeSort(nums,m+1,r);
-
-        merge(nums,l,m,r);
+        merge(nums,l,mid,r);
     }
 
-    void merge(int[] nums, int l, int m, int r){
-        int lsize= m-l+1;
-        int rsize= r-m;
+    public void merge(int[] nums,int l,int m, int r){
+        int l_len= m-l+1;
+        int r_len= r-m;
 
-        int[] larr=new int[lsize];
-        int[] rarr=new int[rsize];
-        int k =l;
- 
-        for(int i=0; i<lsize; i++){
-            larr[i] = nums[k++];
+        int[] left = new int[l_len];
+        int[] right = new int[r_len];
+        int k=l;
+
+        for(int i=0; i<l_len; i++){
+            left[i]=nums[k];
+            k++;
         }
-        
-        for(int j=0; j<rsize; j++){
-            rarr[j] = nums[k++];
+        for(int j=0; j<r_len; j++){
+            right[j]=nums[k];
+            k++;
         }
 
-        k=l;
-        int i=0, j=0;
-        while(i< lsize && j < rsize){
-            if(larr[i]<=rarr[j]){
-                nums[k++]=larr[i++];
+        int i=0; int j=0;k=l;
+
+        while(i<l_len && j<r_len){
+            if(left[i]<=right[j]){
+                nums[k]=left[i];
+                i++;
+                k++;
             }else{
-                nums[k++]=rarr[j++];
+                nums[k]=right[j];    
+                j++;
+                k++;
             }
         }
 
-
-        while(i<lsize){
-            nums[k++]=larr[i++];
+        while(i< l_len){
+            nums[k]=left[i];
+            i++;
+            k++;
         }
-
         
-        while(j<rsize){
-            nums[k++]=rarr[j++];
+        while(j< r_len){
+            nums[k]=right[j];
+            j++;
+            k++;
         }
+        
+       
     }
-
-
 }
