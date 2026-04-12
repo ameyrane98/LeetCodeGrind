@@ -1,45 +1,41 @@
 class Solution {
     public int calculate(String s) {
-        if(s== null || s.isEmpty()) return 0;
-        Stack<Integer> stack = new Stack<>();
-        int currNumber= 0;
-        char prevOperation= '+';
+        if (s == null || s.isEmpty()) return 0;
+        char prevOP= '+';
+        int lasTerm= 0;
+        int currNumber = 0;
+        int totalresult=0;
 
-        for(int i=0; i<s.length(); i++){
+        for(int i=0; i<s.length();i++){
             char currChar = s.charAt(i);
 
-            if(Character.isDigit(currChar)){
-                currNumber= (currNumber * 10) + (currChar - '0');
-            } 
 
-            if(!Character.isDigit(currChar) && !Character.isWhitespace(currChar) || i == s.length() - 1)
-            {
-                if(prevOperation=='+'){
-                    stack.push(currNumber);
-                }else if(prevOperation=='-'){
-                    stack.push(-currNumber);
-                }else if(prevOperation=='*'){
-                    stack.push(stack.pop() * currNumber);
-                }else if(prevOperation=='/'){
-                    stack.push(stack.pop() / currNumber);
+            if(Character.isDigit(currChar)){
+                currNumber = (currNumber * 10) + (currChar - '0');
+            }
+
+
+            if(!Character.isDigit(currChar) && !Character.isWhitespace(currChar) || i == s.length()-1){
+                if(prevOP=='+'){
+                    totalresult+=lasTerm;
+                    lasTerm = currNumber;
+                    
+                }else if(prevOP=='-'){
+                    totalresult+=lasTerm;
+                    lasTerm=-currNumber;
+                }else if(prevOP=='*'){
+                    lasTerm=lasTerm*currNumber;
+                }else if(prevOP=='/'){
+                    lasTerm=lasTerm/currNumber;
                 }
 
-                prevOperation=currChar;
+                 prevOP=currChar;
                 currNumber=0;
+                
             }
+        
         }
 
-        
-    
-
-       int result = 0;
-        while (!stack.isEmpty()) {
-            result += stack.pop();
-        }
-        
-        return result;
+        return totalresult+lasTerm;
     }
-
-        
-    
 }
