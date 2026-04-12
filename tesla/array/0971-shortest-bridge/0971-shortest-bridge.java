@@ -1,4 +1,14 @@
 class Solution {
+
+//    Step 1 — Pattern Recognition
+// Pattern: DFS + Multi-Source BFS
+// Why this pattern? The problem has two distinct phases hiding in plain sight:
+
+// You need to find two separate blobs of land
+// You need to find the shortest path between them
+
+// "Shortest path" in an unweighted grid? That's BFS's signature move. But BFS from where — a single cell? No. You want to expand from the entire boundary of one island simultaneously. That's multi-source BFS.
+// Real-world analogy: Imagine two islands in the ocean. You stand on every beach of Island 1 at the same time, and all of you start swimming outward in all directions. The first swimmer to touch Island 2 swam the shortest distance. How many water tiles did they cross? That's your answer.
     public int shortestBridge(int[][] grid) {
         int n = grid.length;
         int[][] visited = new int[n][n];
@@ -68,5 +78,6 @@ return distance;
 
     }
 
-   
+
+
 }
