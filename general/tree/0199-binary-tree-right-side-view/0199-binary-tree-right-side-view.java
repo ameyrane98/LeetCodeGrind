@@ -14,54 +14,38 @@
  * }
  */
 class Solution {
-    List<Integer> res = new ArrayList();
+    Queue<TreeNode> que = new LinkedList<>();
+    List<Integer> result = new ArrayList<>();
     public List<Integer> rightSideView(TreeNode root) {
         if(root==null){
-            return new ArrayList();
+            return result;
         }
 
-        bfs(root);
-
-
-        return res;
-    }
-
-    public void bfs(TreeNode root){
-        Queue<TreeNode> que = new LinkedList();
         que.offer(root);
-        while(!que.isEmpty()){
-            int que_size = que.size();
-            List<Integer> data=new ArrayList();
-            for(int i=0; i<que_size ; i++){
-                TreeNode node = que.poll();
-                data.add(node.val);
 
-                if(node.left!=null){
-                    que.offer(node.left);
+        while(!que.isEmpty()){
+            int level = que.size();
+            for(int i=0; i<level; i++){
+                TreeNode data = que.poll();
+
+                if(i == level-1){
+                    result.add(data.val);
                 }
 
-                if(node.right!=null){
-                    que.offer(node.right);
+                if(data.left!=null){
+                    que.offer(data.left);
+                }
+
+                if(data.right!=null){
+                    que.offer(data.right);
                 }
             }
 
-            res.add(data.get(data.size()-1));
+
         }
+
+        return result;
     }
 
 
-
-    /**DFS Soolution */
-    // public List<Integer> rightSideView(TreeNode root) {
-    //     List<Integer> list=new ArrayList<>();
-    //     right(root,0,list);
-    //     return list;
-    // }
-    // public void right(TreeNode root,int lvl,List<Integer> list){
-    //     if(root==null) return;
-    //     if(lvl==list.size()) list.add(root.val);
-    //     right(root.right,lvl+1,list);
-    //     right(root.left,lvl+1,list);
-    //     return;
-    // }
 }
