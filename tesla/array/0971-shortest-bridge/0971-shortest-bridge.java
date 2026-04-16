@@ -1,83 +1,54 @@
 class Solution {
+    Queue<int[]> que = new LinkedList<>();
 
-//    Step 1 — Pattern Recognition
-// Pattern: DFS + Multi-Source BFS
-// Why this pattern? The problem has two distinct phases hiding in plain sight:
-
-// You need to find two separate blobs of land
-// You need to find the shortest path between them
-
-// "Shortest path" in an unweighted grid? That's BFS's signature move. But BFS from where — a single cell? No. You want to expand from the entire boundary of one island simultaneously. That's multi-source BFS.
-// Real-world analogy: Imagine two islands in the ocean. You stand on every beach of Island 1 at the same time, and all of you start swimming outward in all directions. The first swimmer to touch Island 2 swam the shortest distance. How many water tiles did they cross? That's your answer.
     public int shortestBridge(int[][] grid) {
         int n = grid.length;
-        int[][] visited = new int[n][n];
-        Queue<int[]> que= new LinkedList<>();
-        int distance =0;
-        
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                visited[i][j]=-1;
-            }
-        }
+        boolean[][] visited = new boolean[n][n];
 
+        // Step 1: Find and mark the first island via DFS
         outer:
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                if(grid[i][j]==1 && visited[i][j]==-1){
-                    // do bfs explore wide
-                   dfs(grid,i,j,n,visited,que);
-                   break outer;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == 1 && !visited[i][j]){
+                    dfs(grid, i, j, n, visited);
+                    break outer;
                 }
             }
         }
 
-       while (!que.isEmpty()) {
-    int size = que.size(); // ← snapshot of current wave size
-    
-    for (int k = 0; k < size; k++) { // ← process entire wave
-        int[] point = que.remove();
-        int ci = point[0];
-        int cj = point[1];
-        
-        int[][] dirs = {{0,1},{0,-1},{1,0},{-1,0}};
-        for (int[] dir : dirs) {
-            int ni = ci + dir[0];
-            int nj = cj + dir[1];
-            
-            if (ni < 0 || nj < 0 || ni >= n || nj >= n) continue; // out of bounds
-            if (visited[ni][nj] == 2) continue;                    // already seen
-            if (grid[ni][nj] == 1) return distance;                // 🎯 Island 2 found!
-            
-            visited[ni][nj] = 2;                                   // mark water as visited
-            que.add(new int[]{ni, nj});
+        // Step 2: BFS level-by-level from all first-island cells
+        int distance = 0;
+        int[][] dir = {{0,1},{1,0},{-1,0},{0,-1}};
+
+        while(!que.isEmpty()){
+            int size = que.size();
+            for(int k = 0; k < size; k++){
+                int[] coord = que.poll();
+                for(int[] ci : dir){
+                    int x = coord[0] + ci[0];
+                    int y = coord[1] + ci[1];
+                    if(x < 0 || x >= n || y < 0 || y >= n || visited[x][y]) continue;
+                    if(grid[x][y] == 1) return distance;
+                    visited[x][y] = true;
+                    que.offer(new int[]{x, y});
+                }
+            }
+            distance++;
         }
-    }
-    distance++; // ← wave complete, one more flip needed
-}
 
-return distance;
-
-
-        
+        return -1; // unreachable if input is valid
     }
 
-    void dfs(int[][]grid, int i, int j, int n, int[][]visited, Queue<int[]> que){
-        
-        if( j>=n || i>=n || i<0 || j <0 || visited[i][j]== 2 || grid[i][j]==0 ){
-            return;
-        }
-        
-        visited[i][j]=2;
-        que.add(new int[]{i,j});
+    void dfs(int[][] grid, int i, int j, int n, boolean[][] visited){
+        if(i >= n || j >= n || i < 0 || j < 0 
+           || visited[i][j] || grid[i][j] == 0) return;
 
-        dfs(grid,i+1,j,n,visited,que);
-        dfs(grid,i-1,j,n,visited,que);
-        dfs(grid,i,j+1,n,visited,que);
-        dfs(grid,i,j-1,n,visited,que);
+        visited[i][j] = true;
+        que.offer(new int[]{i, j});
 
+        dfs(grid, i-1, j, n, visited);
+        dfs(grid, i+1, j, n, visited);
+        dfs(grid, i, j+1, n, visited);
+        dfs(grid, i, j-1, n, visited);
     }
-
-
-
 }
