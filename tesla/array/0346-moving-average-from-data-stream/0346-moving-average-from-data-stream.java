@@ -1,21 +1,20 @@
 class MovingAverage {
-    Queue<Double> que;
-    int windowSize;
-    double sum=0;
+    int sum;
+    int count;
+    int[] window;
     public MovingAverage(int size) {
-        que=new LinkedList<>();
-        windowSize=size;
+        window = new int[size];
+        count=0;
     }
     
     public double next(int val) {
-        if(que.size()==windowSize){
-            sum-=que.poll();
-        }
+        int index = count % window.length;  // wraps around ✅
+        sum -= window[index];               // remove old value at this slot
+        sum += val;                         // add new value
+        window[index] = val;                // overwrite slot
+        count++;
 
-        que.add((double) val);
-        sum+=val;
-        double avg = sum/ (double) que.size();
-        return avg;
+        return sum / (double) Math.min(count, window.length);
     }
 }
 
