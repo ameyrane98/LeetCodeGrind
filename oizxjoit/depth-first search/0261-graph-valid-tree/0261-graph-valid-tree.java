@@ -29,24 +29,46 @@ class Solution {
         }
         boolean[] visited = new boolean[n];
         
-       
-        dfs(adj,0,visited);
         
-        System.out.println(counter);
+       return bfs(adj,0,visited);
+        // dfs(adj,0,visited);
+        
+        // System.out.println(counter);
             
-        return counter == visited.length;
+        // return counter == visited.length;
     }
 
-    void dfs(ArrayList<ArrayList<Integer>> adj, int u,boolean[] visited){
-        visited[u]=true;
-        for(int v: adj.get(u)){
-            if(!visited[v]){
-                counter++;
-                dfs(adj,v,visited);
+    // void dfs(ArrayList<ArrayList<Integer>> adj, int u,boolean[] visited){
+    //     visited[u]=true;
+    //     for(int v: adj.get(u)){
+    //         if(!visited[v]){
+    //             counter++;
+    //             dfs(adj,v,visited);
                
+    //         }
+    //     }
+     
+    // }
+
+    boolean bfs(ArrayList<ArrayList<Integer>> adj, int i, boolean[] visited){
+        Queue<Integer> que = new LinkedList<>();
+
+        que.add(i);
+        visited[i]=true;
+
+        while(!que.isEmpty()){
+            int u = que.poll();
+            for(int v: adj.get(u)){
+                if(!visited[v]){
+                    visited[v]=true;
+                    que.offer(v);
+                    counter++;
+                }
             }
         }
-     
+
+        return counter==visited.length;
+
     }
 
 }
