@@ -41,8 +41,9 @@ class Solution {
         visited[u]=true;
         for(int v: adj.get(u)){
             if(!visited[v]){
-                dfs(adj,v,visited);
                 counter++;
+                dfs(adj,v,visited);
+               
             }
         }
      
