@@ -1,7 +1,6 @@
-/* Write your T-SQL query statement below */
-SELECT today.id
-FROM Weather yesterday
-CROSS JOIN Weather today
-
-WHERE DATEDIFF(day,yesterday.recordDate,today.recordDate) = 1
-AND today.temperature >yesterday.temperature;
+# Write your MySQL query statement below
+Select W1.id
+From Weather as W1
+Left JOIN Weather as W2 
+ON DATEDIFF(W1.recordDate, W2.recordDate) = 1
+where W1.temperature> W2.temperature;
