@@ -56,12 +56,6 @@ class Solution {
             }
         }
 
-        for(int col =0; col<i; col++){ //row from top
-            if(board[i][col]=='Q'){
-                return false;
-            }
-        }
-
         for(int row =i-1, col =j-1; row>=0 && col>=0; row--,col--){  
                 if(board[row][col]=='Q'){
                     return false;
