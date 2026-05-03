@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/employee-bonus">577. Employee Bonus</a></h2><h3>Easy</h3><hr><p>Table: <code>Employee</code></p>
+<h2><a href="https://leetcode.com/problems/employee-bonus/?envType=study-plan-v2&envId=top-sql-50">577. Employee Bonus</a></h2><h3>Easy</h3><hr><p>Table: <code>Employee</code></p>
 
 <pre>
 +-------------+---------+
@@ -31,7 +31,12 @@ Each row of this table contains the id of an employee and their respective bonus
 
 <p>&nbsp;</p>
 
-<p>Write a solution to report the name and bonus amount of each employee with a bonus <strong>less than</strong> <code>1000</code>.</p>
+<p>Write a solution to report the name and bonus amount of each employee who satisfies either of the following:</p>
+
+<ul>
+	<li>The employee has a bonus <strong>less than</strong> <code>1000</code>.</li>
+	<li>The employee did not get any bonus.</li>
+</ul>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
