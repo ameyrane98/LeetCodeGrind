@@ -1,21 +1,29 @@
 class Solution {
-   public boolean wordPattern(String pattern, String s) {
-    String[] words = s.split(" ");
-    if (pattern.length() != words.length) return false;
+    public boolean wordPattern(String pattern, String s) {
+        
+        String[] word = s.split(" ");
 
-    Map<Character, String> charToWord = new HashMap<>();
-    Map<String, Character> wordToChar = new HashMap<>();   // bidirectional
+        if(pattern.length()!= word.length){
+            return false;
+        }
 
-    for (int i = 0; i < pattern.length(); i++) {
-        char c = pattern.charAt(i);
-        String w = words[i];
+        HashMap<Character,String> c2W = new HashMap<>();
+        HashMap<String,Character> W2c = new HashMap<>();
 
-        if (charToWord.containsKey(c) && !charToWord.get(c).equals(w)) return false;
-        if (wordToChar.containsKey(w) && wordToChar.get(w) != c) return false;
+        for(int i=0; i<pattern.length(); i++){
+            Character c = pattern.charAt(i);
+            String w = word[i];
 
-        charToWord.put(c, w);
-        wordToChar.put(w, c);
+            if(c2W.containsKey(c) && !c2W.get(c).equals(w)){
+                return false;
+            }
+            if (W2c.containsKey(w) && W2c.get(w)!=c){
+                return false;
+            }
+            c2W.put(c,w);
+            W2c.put(w,c);
+        }
+
+        return true;
     }
-    return true;
-}
 }
