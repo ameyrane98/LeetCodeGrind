@@ -8,23 +8,7 @@
  * }
  */
 class Solution {
-    /**
-    
-    Let n be the number of nodes in the binary tree.
-
-Time complexity: O(n)
-
-The algorithm performs two main operations:
-
-The LCA function performs a depth-first search (DFS) to find the lowest common ancestor. In the worst case, this involves visiting all nodes, resulting in a time complexity of O(n).
-The dfs function is called twice to check if one node is in the subtree of the other. Each dfs call also traverses the tree in a DFS manner, which takes O(n) in the worst case.
-Since these operations are performed sequentially, the overall time complexity is O(n).
-
-Space complexity: O(n)
-
-The space complexity is determined by the recursion stack used during the DFS traversals. In the worst case, the tree can be a skewed tree (e.g., all nodes in a single branch), leading to a recursion depth of n. Additionally, the local variables and function calls contribute constant space, which is negligible compared to the recursion stack. Therefore, the space complexity is O(n).
-
- */
+ 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root ==null){
             return root;
