@@ -27,23 +27,23 @@ class Solution {
         int minCol=0;
         int maxCol=0;
         while(!que.isEmpty()){
-            Pair node = que.poll();
-            if(map.containsKey(node.col)){
-                map.get(node.col).add(node.Node.val);
+            Pair p = que.poll();
+            if(map.containsKey(p.col)){
+                map.get(p.col).add(p.Node.val);
             }else{
                 List<Integer> list = new LinkedList<>();
-                list.add(node.Node.val);
-                map.put(node.col, list);
+                list.add(p.Node.val);
+                map.put(p.col, list);
             }
 
-            minCol= Math.min(minCol,node.col);
-            maxCol= Math.max(maxCol,node.col);
-            if(node.Node.left!=null){
-                que.add(new Pair(node.Node.left,node.col-1));
+            minCol= Math.min(minCol,p.col);
+            maxCol= Math.max(maxCol,p.col);
+            if(p.Node.left!=null){
+                que.add(new Pair(p.Node.left,p.col-1));
             }
 
-            if(node.Node.right!=null){
-                que.add(new Pair(node.Node.right,node.col+1));
+            if(p.Node.right!=null){
+                que.add(new Pair(p.Node.right,p.col+1));
             }
         }
 
